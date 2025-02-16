@@ -1,0 +1,25 @@
+// manifest.json (No changes needed here)
+{
+  "manifest_version": 3,
+  "name": "YouTube TV start screen",
+  "version": "1.2",
+  "description": "Makes YouTube preview thumbnails pop up and cover other videos, with a Google TV-like start screen.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+    "host_permissions": [
+    "*://*.youtube.com/*"
+  ]
+}
